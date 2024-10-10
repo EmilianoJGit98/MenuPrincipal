@@ -1,3 +1,48 @@
-.card-img-top{
-  background: linear-gradient(#0e264b, #053e94) !important;
+.card{
+  border: none !important;
+}
+
+.routerLink{
+  text-decoration: none !important;
+  border: none !important;
+}
+
+.routerLink .card-body{
+  /* background: #033d64 !important; */
+  color: #033d64 !important;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border: none !important;
+}
+
+.routerLink i{
+  font-size: 25px;
+  color: #033d64 !important;
+  border: none !important;
+}
+
+.routerLink:hover .card-body{
+  background: #015288 !important;
+  box-shadow: 4px 4px 7px #0152887f !important;
+  transition: ease all .4s;
+  color: white !important;
+
+}
+.routerLink:hover i{
+  transition: ease all .4s;
+  color: white !important;
+}
+
+.active .card-body{
+  background: #018881 !important;
+  box-shadow: 4px 4px 7px #0188819e !important;
+  color: white !important;
+  border: none !important;
+}
+
+.active i{
+  color: #fff !important;
+  border: none !important;
 }

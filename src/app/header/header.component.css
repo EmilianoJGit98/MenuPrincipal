@@ -1,13 +1,23 @@
 i{
   font-size: 30px;
-  color: #3176dc;
+  color: #ffffff;
+}
+
+a:hover i{
+  color: #0e264b;
 }
 
 a{
   font-weight: bold !important;
-  color: #3176dc;
+  color: #ffffff;
 }
 
 a:hover{
-  text-shadow: 0px 0px 2px #bebebe;
+  color: #0e264b;
+}
+
+.navbar{
+  background: #027493 !important;
+  /* background: linear-gradient(#0ba5d0, #027493) !important; */
+
 }
