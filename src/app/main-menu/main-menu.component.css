@@ -1,3 +1,7 @@
+.responsive{
+ background: #018881 !important;
+}
+
 .card{
   border: none !important;
 }
@@ -24,8 +28,8 @@
 }
 
 .routerLink:hover .card-body{
-  background: #015288 !important;
-  box-shadow: 4px 4px 7px #0152887f !important;
+  background: #027493 !important;
+  box-shadow: 4px 4px 7px #d9d9d9 !important;
   transition: ease all .4s;
   color: white !important;
 
@@ -46,3 +50,37 @@
   color: #fff !important;
   border: none !important;
 }
+
+.responsive .navbar-toggler i{
+  color: #fff !important;
+  font-size: 34px !important;
+}
+
+#navbarMain  .active{
+  color:#fff !important;
+  padding: 5px !important;
+  border-bottom: none !important;
+  background: #017973 !important;
+  border-radius: 3px;
+}
+
+
+@media (max-width: 740px) {
+  .desktop{
+    display: none !important;
+  }
+}
+
+@media (max-width: 740px) {
+  .routerOuletContent{
+    box-shadow: none !important;
+    border: none !important;
+    background: #01888100 !important;
+    border-radius: 0px !important;
+  }
+  .responsive{
+    display: block !important;
+    width: 100% !important;
+  }
+}
+

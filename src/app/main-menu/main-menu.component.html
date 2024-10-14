@@ -1,5 +1,5 @@
-<div class="container mt-0 rounded px-3 pb-4">
-  <div class="row d-flex justify-content-center mt-3">
+<div class="container mt-0 rounded px-3 pb-2 desktop">
+  <div class="row d-flex justify-content-center mt-4">
     <div class="col-6 col-md-3 col-lg-2 mb-4 p-0 ">
       <div class="py-0 px-3">
         <a class="routerLink" routerLink="afiliaciones" routerLinkActive="active">
@@ -79,8 +79,41 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container-fluid border bg-light rounded shadow-sm mt-0 p-4">
-    <router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-light bg-light responsive d-none">
+  <div class="container-fluid d-flex align-items-center fw-bold text-white ps-3">
+
+    Desplegar
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+      aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <!-- <i class="fas fas fab fa-buromobelexperte"></i> -->
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link fw-bold ps-2 text-white" routerLink="afiliaciones"
+            routerLinkActive="active">Afiliaciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold ps-2 text-white" routerLink="auditoriaM" routerLinkActive="active">Auditoría
+            Médica</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold ps-2 text-white" routerLink="farmacia" routerLinkActive="active">Farmacia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold ps-2 text-white" routerLink="turnero" routerLinkActive="active">Turnero</a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
+
+<div class="container border bg-light rounded shadow-sm mt-0 p-4 routerOuletContent">
+  <router-outlet></router-outlet>
 </div>

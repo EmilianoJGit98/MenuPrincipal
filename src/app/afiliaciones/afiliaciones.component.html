@@ -1,4 +1,25 @@
-<p>
-  afiliaciones
+<table class="table table-striped border table-bordered">
+  <thead>
+    <tr class="text-center">
+      <th>ID</th>
+      <th>Nombre Completo</th>
+      <th>Nombre Usuario</th>
+      <th>Domicilio</th>
+      <th>Contacto</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let generico of ListadoGenerico">
+      <td>{{ generico.id }}</td>
+      <td>{{ generico.name }}</td>
+      <td>{{ generico.username }}</td>
+      <td>{{ generico.address.city }}</td>
+      <td>{{ generico.phone }}</td>
+      <td class="text-center"><button class="btn btn-sm btn-danger me-2"><i
+            class="fas fas fa-trash-alt"></i></button><button class="btn btn-sm btn-warning"><i
+            class="fas fa-pencil"></i></button></td>
+    </tr>
 
-</p>
+  </tbody>
+</table>
