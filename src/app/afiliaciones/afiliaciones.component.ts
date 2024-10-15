@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MainMenuComponent } from '../main-menu/main-menu.component';
-import { ListadoGenericoService } from '../servicios/listado-generico.service';
+import { ListadoGenericoService } from '../services/listado-generico.service';
 import { CommonModule } from '@angular/common';
-import { Iusuario } from '../models/listado.model';
+
 
 @Component({
   selector: 'app-afiliaciones',
@@ -16,16 +16,6 @@ import { Iusuario } from '../models/listado.model';
 //instalar jquery ->  npm install jquery
 export class AfiliacionesComponent implements OnInit {
   ListadoGenerico: any[] = [];
-
-  usuario: Iusuario = {
-    id: 0,
-    username: '',
-    address: {
-      street: '',
-    },
-    email: '',
-    phone: '',
-  };
 
   constructor(private ListGenerico: ListadoGenericoService) {}
 
