@@ -67,7 +67,7 @@ export class ActividadesAnualesService {
       id: 11109217,
       title: 'USUFRUCTO VIA PUBLICA',
       modulo: 519,
-      unit_price: 112.000
+      unit_price: 112.0,
     },
     {
       id: 1111155,
@@ -81,7 +81,6 @@ export class ActividadesAnualesService {
       modulo: 62.5,
       unit_price: 0.01,
     },
-
   ];
 
   obtenerActividadesAnuales() {
