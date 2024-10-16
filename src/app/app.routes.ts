@@ -11,6 +11,8 @@ import { PrestacionesComponent } from './prestaciones/prestaciones.component';
 import { AuditoriaMComponent } from './auditoria-m/auditoria-m.component';
 import { FarmaciaComponent } from './farmacia/farmacia.component';
 import { TurneroComponent } from './turnero/turnero.component';
+import { AddAuditorMedicoComponent } from './auditoria-m/add-auditor-medico/add-auditor-medico.component';
+import { UpdateAuditorMedicoComponent } from './auditoria-m/update-auditor-medico/update-auditor-medico.component';
 
 export const routes: Routes = [
   // { path: '**', redirectTo: 'main' }, // Manejo de rutas desconocidas
@@ -20,7 +22,12 @@ export const routes: Routes = [
     component: MainMenuComponent,
     children: [
       { path: 'afiliaciones', component: AfiliacionesComponent },
-      { path: 'auditoriaM', component: AuditoriaMComponent },
+      { path: 'auditoriaM', component: AuditoriaMComponent,
+        children: [
+          { path: 'add-auditor', component: AddAuditorMedicoComponent },
+          { path: 'update-auditor/:idAuditor', component: UpdateAuditorMedicoComponent }
+        ],
+       },
       { path: 'farmacia', component: FarmaciaComponent },
       { path: 'turnero', component: TurneroComponent },
       { path: 'prestaciones', component: PrestacionesComponent },

@@ -1,0 +1,29 @@
+/* .upAuditor:hover {
+  color: orange !important;
+}
+.delAuditor:hover {
+  color: red !important;
+}
+
+.upAuditor .active{
+  background: orange !important;
+} */
+
+.upAuditor:hover {
+  color: orange !important;
+}
+
+.active{
+  border: none !important;
+}
+
+.toast-active {
+  background-color: #018881; /* Cambia el color de fondo */
+  /* border: 1px solid #00796b; */
+  transition: ease all .3s;
+}
+
+.toast-active .toast-body{
+  color: white !important;
+  font-weight: bold !important;
+}

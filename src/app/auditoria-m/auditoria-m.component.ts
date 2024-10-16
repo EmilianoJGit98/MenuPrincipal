@@ -3,11 +3,12 @@ import { GestionActividadesAPI } from '../services/gestion-actividades-api.servi
 import { ActividadesAnualesService } from '../services/actividades-anuales.service';
 import { ActividadesOktoberFestService } from '../services/actividades-oktober-fest.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-auditoria-m',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './auditoria-m.component.html',
   styleUrl: './auditoria-m.component.css',
 })
@@ -49,5 +50,15 @@ export class AuditoriaMComponent {
         console.error('Error al obtener actividades:', error);
       }
     );
+  }
+
+  activeId: number | null = null; // Para almacenar el ID del toast activo
+
+  setActive(id: number) {
+    this.activeId = id; // Establecer el ID del toast activo
+  }
+
+  isActive(id: number): boolean {
+    return this.activeId === id; // Verifica si el toast es el activo
   }
 }

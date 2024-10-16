@@ -1,13 +1,21 @@
 <div class="row">
+  <div class="col-12 col-md-3 mb-3">
+    <button class="btn btn-success fs-min fw-bold w-100 shadow-sm" [routerLink]="['add-auditor']">Crear nueva actividad <i class="fas fa-plus"></i></button>
+  </div>
+  <div class="col-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="row">
   <div class="col-12 col-md-3 mb-2 d-flex align-items-stretch" *ngFor="let actividad of ArregloActividades">
     <div class="w-100 mb-2 d-flex align-items-stretch">
-      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" [ngClass]="{'toast-active': isActive(actividad.idSubRubro)}">
         <div class="toast-header">
           <!-- <img src="..." class="rounded me-2" alt="..."> -->
-          <strong class="fs-min">{{ actividad.descripcion}}</strong>
+          <strong class="fs-min">{{actividad.descripcion}}</strong>
           <small class="ms-2">
-            <button class="btn btn-sm text-warning border w-100 mb-1"><i class="fas fa-pencil"></i></button>
-            <button class="btn btn-sm text-danger border w-100"><i class="fas fas fa-trash-alt"></i></button>
+            <button class="btn btn-sm text-dark fs-med w-100 p-0 p-1 mb-1 upAuditor" [routerLink]="['update-auditor', actividad.idSubRubro]" routerLinkActive="active" (click)="setActive(actividad.idSubRubro)"><i class="fas fa-pencil"></i></button>
+            <button class="btn btn-sm text-dark fs-med w-100 p-0 p-1 delAuditor"><i class="fas fas fa-trash-alt"></i></button>
           </small>
           <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
         </div>
