@@ -4,6 +4,8 @@ import { ActividadesAnualesService } from '../services/actividades-anuales.servi
 import { ActividadesOktoberFestService } from '../services/actividades-oktober-fest.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AddAuditorMedicoComponent } from './add-auditor-medico/add-auditor-medico.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-auditoria-m',
@@ -16,7 +18,8 @@ export class AuditoriaMComponent {
   constructor(
     private gestActividades: GestionActividadesAPI,
     private actAnuales: ActividadesAnualesService,
-    private actOktober: ActividadesOktoberFestService
+    private actOktober: ActividadesOktoberFestService,
+    public modal: MatDialog
   ) {}
   IDevento: number = 1;
   ArregloActividades: any[] = [];
@@ -60,5 +63,17 @@ export class AuditoriaMComponent {
 
   isActive(id: number): boolean {
     return this.activeId === id; // Verifica si el toast es el activo
+  }
+
+  abrirModal(): void {
+    const dialogRef = this.modal.open(AddAuditorMedicoComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // Aquí manejas el resultado, que son los datos enviados desde el modal
+      if (result) {
+        console.log('Datos recibidos desde el modal:', result);
+        // Aquí puedes hacer lo que necesites con los datos recibidos
+      }
+    });
   }
 }

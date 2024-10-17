@@ -22,12 +22,14 @@ export const routes: Routes = [
     component: MainMenuComponent,
     children: [
       { path: 'afiliaciones', component: AfiliacionesComponent },
-      { path: 'auditoriaM', component: AuditoriaMComponent,
-        children: [
-          { path: 'add-auditor', component: AddAuditorMedicoComponent },
-          { path: 'update-auditor/:idAuditor', component: UpdateAuditorMedicoComponent }
-        ],
-       },
+      {
+        path: 'auditoriaM',
+        component: AuditoriaMComponent,
+        // children: [
+        //   { path: 'add-auditor', component: AddAuditorMedicoComponent },
+        //   { path: 'update-auditor/:idAuditor', component: UpdateAuditorMedicoComponent }
+        // ],
+      },
       { path: 'farmacia', component: FarmaciaComponent },
       { path: 'turnero', component: TurneroComponent },
       { path: 'prestaciones', component: PrestacionesComponent },
