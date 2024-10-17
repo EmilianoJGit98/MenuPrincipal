@@ -71,7 +71,7 @@ export class AuditoriaMComponent {
     dialogRef.afterClosed().subscribe((result) => {
       // Aquí manejas el resultado, que son los datos enviados desde el modal
       if (result) {
-        console.log('Datos recibidos desde el modal:', result);
+        console.log(result);
         // Aquí puedes hacer lo que necesites con los datos recibidos
       }
     });
