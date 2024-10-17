@@ -1,13 +1,8 @@
 <div class="row">
   <div class="col-12 col-md-3 mb-3">
-    <!-- <button class="btn btn-success fs-min fw-bold w-100 shadow-sm" [routerLink]="['add-auditor']">Crear nueva actividad
-      <i class="fas fa-plus"></i></button> -->
-
     <button class="btn btn-success fs-min fw-bold w-100 shadow-sm" (click)="abrirModal()">Crear nueva actividad
-      <i class="fas fa-plus"></i></button>
-  </div>
-  <div class="col-12">
-    <!-- <router-outlet></router-outlet> -->
+      <i class="fas fa-plus"></i>
+    </button>
   </div>
 </div>
 <div class="row">
@@ -16,23 +11,31 @@
       <div class="toast show w-100" role="alert" aria-live="assertive" aria-atomic="true"
         [ngClass]="{'toast-active': isActive(actividad.idSubRubro)}">
         <div class="toast-header">
-          <!-- <img src="..." class="rounded me-2" alt="..."> -->
-          <strong class="fs-min">{{actividad.descripcion}}</strong>
-          <small class="ms-2">
-            <button class="btn btn-sm text-dark fs-med w-100 p-0 p-1 mb-1 upAuditor" routerLinkActive="active"
+          <strong class="fs-min w-100">{{actividad.descripcion}}</strong>
+          <small class="ms-2 p-0">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="abrirModalUpdate(actividad.idSubRubro)">
+                <mat-icon class="text-warning">edit</mat-icon>
+                <span class="fw-bold">Modificar</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon class="text-danger">delete_forever</mat-icon>
+                <span class="fw-bold">Eliminar Actividad</span>
+              </button>
+            </mat-menu>
+            <!-- <button class="btn btn-sm text-dark fs-med w-100 p-0 p-1 mb-1 upAuditor" routerLinkActive="active"
               (click)="setActive(actividad.idSubRubro)"><i class="fas fa-pencil"></i></button>
             <button class="btn btn-sm text-dark fs-med w-100 p-0 p-1 delAuditor"><i
-                class="fas fas fa-trash-alt"></i></button>
+                class="fas fas fa-trash-alt"></i></button> -->
           </small>
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
         </div>
         <div class="toast-body fs-min">
           Precio: ${{ actividad.ImporteSujerido }}
         </div>
       </div>
-
-      <!-- <label class="fw-bold w-100 fs-min border-bottom text-justify mb-2">{{ actividad.descripcion}}</label> -->
-      <!-- <label class="w-100 fs-min text-justify">Precio: ${{ actividad.ImporteSujerido }}</label> -->
     </div>
   </div>
 </div>

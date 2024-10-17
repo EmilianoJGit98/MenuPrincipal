@@ -5,12 +5,28 @@ import { ActividadesOktoberFestService } from '../services/actividades-oktober-f
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AddAuditorMedicoComponent } from './add-auditor-medico/add-auditor-medico.component';
-import { MatDialog } from '@angular/material/dialog';
+import { UpdateAuditorMedicoComponent } from './update-auditor-medico/update-auditor-medico.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-auditoria-m',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatMenuModule,
+    MatIconButton,
+    MatIconModule,
+    MatInputModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule,
+  ],
   templateUrl: './auditoria-m.component.html',
   styleUrl: './auditoria-m.component.css',
 })
@@ -21,6 +37,7 @@ export class AuditoriaMComponent {
     private actOktober: ActividadesOktoberFestService,
     public modal: MatDialog
   ) {}
+
   IDevento: number = 1;
   ArregloActividades: any[] = [];
   actividadesAnuales: any[] = [];
@@ -75,5 +92,49 @@ export class AuditoriaMComponent {
         // Aquí puedes hacer lo que necesites con los datos recibidos
       }
     });
+  }
+
+  abrirModalUpdate(idActividad: any): void {
+    // console.log(this.ArregloActividades);
+
+    // console.log(idActividad);
+    const actividad = this.ArregloActividades.find(
+      (a) => a.idSubRubro === idActividad
+    );
+
+    if (actividad) {
+      console.log(actividad.ImporteSujerido);
+      console.log(actividad.descripcion);
+      console.log(actividad.idSubRubro);
+
+      const dialogRef = this.modal.open(UpdateAuditorMedicoComponent, {
+        data: {
+          // idActividad: actividad.idSubRubro,
+          desc_actividad: actividad.descripcion, // Cargar el valor real de la actividad
+          precio_act: actividad.ImporteSujerido, // Cargar el valor real
+          idsubrubro: actividad.idSubRubro, // Asegúrate de incluir este campo si es necesario
+        },
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        // Aquí manejas el resultado, que son los datos enviados desde el modal
+        if (result) {
+          // this.modificarActividad(idActividad.id, result); // Lógica para actualizar la actividad
+          // Aquí puedes hacer lo que necesites con los datos recibidos
+        }
+      });
+    }
+  }
+
+  modificarActividad(id: number, actividadModificada: any): void {
+    // Implementar la lógica para encontrar y actualizar la actividad en ArregloActividades
+    const index = this.ArregloActividades.findIndex((a) => a.id === id);
+    if (index !== -1) {
+      this.ArregloActividades[index] = {
+        ...this.ArregloActividades[index],
+        ...actividadModificada,
+      };
+      // Asegúrate de que el arreglo se actualice de forma reactiva si usas algo como BehaviourSubject
+    }
   }
 }
