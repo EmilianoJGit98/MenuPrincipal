@@ -1,9 +1,16 @@
 <div class="row">
   <div class="col-12 col-md-3 mb-3">
-    <button class="btn btn-success fs-min fw-bold w-100 shadow-sm" (click)="abrirModal()">Crear nueva actividad
+    <!-- <button class="btn btn-success fs-min fw-bold w-100 shadow-sm" (click)="abrirModal()">Crear nueva actividad
       <i class="fas fa-plus"></i>
+    </button> -->
+
+    <button mat-fab extended class="fw-bold w-100 bg-success text-white" (click)="abrirModal()">
+      <mat-icon class="text-white">playlist_add</mat-icon>
+      Crear nueva actividad
     </button>
+
   </div>
+
 </div>
 <div class="row">
   <div class="col-12 col-md-3 mb-2 d-flex align-items-stretch" *ngFor="let actividad of ArregloActividades">

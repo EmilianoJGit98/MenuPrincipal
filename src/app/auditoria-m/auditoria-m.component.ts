@@ -12,6 +12,7 @@ import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-auditoria-m',
@@ -26,6 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTableModule,
   ],
   templateUrl: './auditoria-m.component.html',
   styleUrl: './auditoria-m.component.css',
