@@ -1,51 +1,66 @@
-<div class="row d-flex justify-content-end p-0">
+<!-- <div class="row d-flex justify-content-end d-block p-0 hidden-desktop px-3">
   <div class="col-12 col-md-1 p-0">
     <div class="p-2 d-flex justify-content-end">
       <button mat-mini-fab class="me-2 shadow bg-success">
         <mat-icon class="text-white">group_add</mat-icon>
       </button>
     </div>
-
   </div>
+</div> -->
+<div class="row p-2 ">
   <div class="col-12 col-md-4 p-0">
-    <div class="">
+    <div class="d-flex justify-content-center">
       <mat-form-field class="w-100">
         <input matInput (keyup)="applyFilter($event)" placeholder="Buscar un registro">
       </mat-form-field>
     </div>
   </div>
+  <div class="col-12 p-0 show-responsive d-none" *ngFor="let user of dataSource.filteredData">
+    <div class="alert border shadow py-3 px-3" role="alert">
+      <h4 class="alert-heading fs-med py-0">{{ user.id}}. {{user.name}} </h4>
+      <p class="p-0 m-0 fs-min"><i class="fas fas fa-user-alt me-2 fs-min"></i>{{user.username}}</p>
+      <hr />
+      <p class="p-0 m-0 fs-min"><i class="fas fas fa-mail-bulk me-2 fs-min"></i>{{user.email}}</p>
+    </div>
+  </div>
 </div>
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="shadow border">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="shadow border tbafiliados hidden-desktop">
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> id </th>
-    <td mat-cell *matCellDef="let element" class="py-0"> {{element.id}} </td>
+    <th mat-header-cell *matHeaderCellDef class="mat-th fs-min"> id </th>
+    <td mat-cell *matCellDef="let element" class="py-0 text-center border-bottom fs-min"> {{element.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> name </th>
-    <td mat-cell *matCellDef="let element" class="py-0"> {{element.name}} </td>
+    <th mat-header-cell *matHeaderCellDef class="mat-th fs-min"> name </th>
+    <td mat-cell *matCellDef="let element" class="py-0 text-center border-bottom fs-min"> {{element.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="username">
-    <th mat-header-cell *matHeaderCellDef> username </th>
-    <td mat-cell *matCellDef="let element" class="py-0"> {{element.username}} </td>
+    <th mat-header-cell *matHeaderCellDef class="mat-th fs-min"> username </th>
+    <td mat-cell *matCellDef="let element" class="py-0 text-center border-bottom fs-min"> {{element.username}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> email </th>
-    <td mat-cell *matCellDef="let element" class="py-0"> {{element.email}} </td>
+    <th mat-header-cell *matHeaderCellDef class="mat-th fs-min"> email </th>
+    <td mat-cell *matCellDef="let element" class="py-0 text-center border-bottom fs-min"> {{element.email}} </td>
   </ng-container>
 
   <ng-container matColumnDef="acciones">
-    <th mat-header-cell *matHeaderCellDef class="text-center"> acciones </th>
-    <td mat-cell *matCellDef="let element" class="text-center">
-      <button mat-mini-fab class="me-2 shadow bg-warning">
+    <th mat-header-cell *matHeaderCellDef class="mat-th fs-min"> acciones </th>
+    <td mat-cell *matCellDef="let element" class="text-center border-bottom">
+      <!-- <button mat-mini-fab class="me-2 shadow bg-warning">
         <mat-icon class="text-white">edit</mat-icon>
       </button>
       <button mat-mini-fab class="shadow bg-danger">
         <mat-icon class="text-white">delete</mat-icon>
+      </button> -->
+      <button class="btn btn-sm btn-warning rounded-2 p-0 text-white me-2">
+        <mat-icon class="d-flex justify-content-center align-items-center fs-responsive fs-med">edit</mat-icon>
+      </button>
+      <button class="btn btn-sm btn-danger rounded-2 p-0 text-white">
+        <mat-icon class="d-flex justify-content-center align-items-center fs-responsive fs-med">delete</mat-icon>
       </button>
     </td>
   </ng-container>
@@ -54,7 +69,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="fw-bold"></tr>
 </table>
 
-<mat-paginator class="shadow" [length]="100" [pageSize]="3" [pageSizeOptions]="[5, 10, 25, 100]"
+<mat-paginator class="shadow hidden-desktop" [length]="100" [pageSize]="3" [pageSizeOptions]="[5, 10, 25, 100]"
   aria-label="Select page">
 </mat-paginator>
 

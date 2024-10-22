@@ -35,15 +35,21 @@ export class AfiliacionesComponent implements OnInit {
   ListadoGenerico: Iusuario[] = []; // Arreglo que almacenará la lista de usuarios obtenida del servicio
   displayedColumns: string[] = ['id', 'name', 'username', 'email', 'acciones']; // Definir las columnas que se mostrarán en la tabla
   dataSource: MatTableDataSource<Iusuario> = new MatTableDataSource(); // Crear una fuente de datos para la tabla usando MatTableDataSource
+  dataServiceResponse: string[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Usar ViewChild para obtener una referencia del paginator definido en el HTML
+  @ViewChild(MatPaginator) paginatorResponsive!: MatPaginator; // Usar ViewChild para obtener una referencia del paginator definido en el HTML
 
   constructor(private ListGenerico: ListadoGenericoService) {} // Inyectar el servicio ListadoGenerico en el constructor
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginatorResponsive;
     // Método que se ejecuta una vez al inicializar el componente
     this.ListGenerico.getListGenerico().subscribe((response: Iusuario[]) => {
       this.dataSource.data = response; // Asignar la respuesta del servicio a dataSource para mostrarla en la tabla
+      // this.dataServiceResponse = this.dataSource.filteredData;
+
+      console.log(this.dataSource.filteredData);
     });
   }
 
@@ -53,6 +59,11 @@ export class AfiliacionesComponent implements OnInit {
   }
 
   applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase(); // Asignar el valor del filtro
+  }
+
+  filtroResponsive(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase(); // Asignar el valor del filtro
   }

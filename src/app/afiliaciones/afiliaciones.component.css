@@ -1,1 +1,32 @@
 
+
+.tbafiliados .mat-cell{
+
+}
+
+.tbafiliados {
+
+  /* Estilos generales para la tabla */
+  /* width:50% !important; */
+  /* border:1px solid #ccc !important; */
+ }
+
+ .mat-th{
+  text-align: center !important;
+  border: solid 1px #ebebeb;
+ }
+
+
+ @media (max-width:768px) {
+  .hidden-desktop{
+    display: none !important;
+  }
+
+  .show-responsive{
+    display: block !important;
+  }
+ }
+
+ @media (min-width:768px) {
+
+ }

@@ -9,16 +9,19 @@ body {
 }
 
 .fs-min {
-  font-size: 12px !important;
+  font-size: 0.8rem !important;
 }
 
 .fs-med {
-  font-size: 14px !important;
+  font-size: 1.2rem !important;
 }
 
 .fs-alto {
-  font-size: 16px !important;
+  font-size: 1.6rem !important;
 }
 
 html, body { height: 100%; }
 body { margin: 0; }
+
+
+
